@@ -20,3 +20,33 @@ export async function getPopularTv() {
   const response = await axios.get(`${apiUrl}/tv/popular?${apiKey}`);
   return response.data.results;
 }
+
+//Get Family Movies
+export async function getFamilyMovies() {
+  const response = await axios.get(
+    `${apiUrl}/discover/movie?${apiKey}&with_genres=10751`,
+  );
+  return response.data.results;
+}
+
+//Get Crime Movies
+export async function getCrimeMovies() {
+  const response = await axios.get(
+    `${apiUrl}/discover/movie?${apiKey}&with_genres=80`,
+  );
+  return response.data.results;
+}
+
+//Get Movies
+export async function getMovies(id) {
+  const response = await axios.get(`${apiUrl}/movie/${id}?${apiKey}`);
+  return response.data;
+}
+
+//Search Movies/TV by keyword
+export async function searchMovieTv(query, type) {
+  const response = await axios.get(
+    `${apiUrl}/search/${type}?${apiKey}&query=${query}`,
+  );
+  return response.data.results;
+}

@@ -1,29 +1,17 @@
+import 'react-native-gesture-handler';
 import React, {useEffect, useState} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {getPopularMovies} from './services/service';
+import {Text, LogBox, StyleSheet} from 'react-native';
+import MainStackNavigator from './navigation/MainStackNavigator';
 
 const App = () => {
-  const [movies, setMovies] = useState('');
-  const [error, setError] = useState(false);
-
   useEffect(() => {
-    const controller = new AbortController();
-
-    getPopularMovies()
-      .then(movies => {
-        setMovies(movies[0]);
-      })
-      .catch(err => setError(err));
-
-    return () => controller.abort();
+    LogBox.ignoreLogs([
+      'ViewPropTypes will be removed',
+      'ColorPropType will be removed',
+    ]);
   }, []);
 
-  return (
-    <View style={styles.container}>
-      <Text>{movies.original_title}</Text>
-      {error && <Text style={styles.errorText}>Error in the server</Text>}
-    </View>
-  );
+  return <MainStackNavigator />;
 };
 
 const styles = StyleSheet.create({
@@ -31,10 +19,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  errorText: {
-    color: 'red',
   },
 });
 
