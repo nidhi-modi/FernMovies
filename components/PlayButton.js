@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
+import Colors from '../themes/Colors';
 
 class PlayButton extends React.PureComponent {
   render() {
@@ -9,7 +10,7 @@ class PlayButton extends React.PureComponent {
 
     return (
       <TouchableOpacity onPress={() => handlePress()} style={styles.container}>
-        <Icon name={'play'} size={30} color={'#ffffff'}></Icon>
+        <Icon name={'play'} size={30} color={Colors.white}></Icon>
       </TouchableOpacity>
     );
   }
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 13,
     borderRadius: 50,
-    backgroundColor: '#4481fc',
+    backgroundColor: Colors.primary,
     zIndex: 0.5,
   },
 });

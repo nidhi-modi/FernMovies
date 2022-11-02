@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {searchMovieTv} from '../services/service';
 import Card from '../components/Card';
 import Error from '../components/Error';
+import Colors from '../themes/Colors';
 
 const Search = ({navigation}) => {
   const [text, onChangeText] = useState('');
@@ -102,13 +103,13 @@ const styles = StyleSheet.create({
   },
 
   errorTextColour: {
-    color: '#FF0000',
+    color: Colors.danger,
     fontWeight: 'bold',
     marginLeft: 5,
   },
 
   textColour: {
-    color: '#000000',
+    color: Colors.black,
     fontWeight: 'bold',
     marginLeft: 5,
   },
